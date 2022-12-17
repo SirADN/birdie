@@ -1,13 +1,8 @@
 import { Select, Stack, Text, Title } from '@mantine/core';
 import React, { useEffect, useMemo, useState } from 'react'
-import api from './tools/api';
-
-interface RecipientId {
-    care_recipient_id: string;
-}
-interface Day {
-    date: string;
-}
+import api from './utils/api';
+import { TableScrollArea } from './Table';
+import { Day, DayInfo, RecipientId } from './utils/types';
 
 function Home() {
     const [get, setGet] = useState<boolean>(true);
@@ -15,15 +10,15 @@ function Home() {
     const [selectedRecipient, setSelectedRecipient] = useState<string|null>('')
     const [days, setDays] = useState<Day[]>([])
     const [selectedDay, setSelectedDay] = useState<string|null>('')
+    const [dayInfos, setDaysInfos] = useState<DayInfo[]>([])
 
     const dataRecipients = useMemo(()=> {
         return recipients.map((item)=> item.care_recipient_id)
     }, [recipients])
 
     const dataDays = useMemo(()=> {
-        return days.map((day)=> day.date)
+        return days.map((day)=> day.day)
     }, [days])
-    console.log(dataDays)
 
     const getRecipients = async () => {
         try {
@@ -48,6 +43,17 @@ function Home() {
           }
     }
 
+    const getDayInfos = async () => {
+        try {
+            const response = await api.get(`/recipients/dayinfos?care_recipient_id=${selectedRecipient}&day=${selectedDay}`);
+            const responseData = await response.data;
+            console.log('response:', responseData);
+            setDaysInfos(responseData)
+          } catch (err) {
+            console.log(err);
+          }
+    }
+
     useEffect(()=> {
         getRecipients();
     }, [get])
@@ -58,6 +64,13 @@ function Home() {
         }
     }, [selectedRecipient])
 
+    useEffect(()=> {
+        if (selectedDay !== '') {
+            getDayInfos();
+        }
+    }, [selectedDay])
+
+    
 
   return (
     <Stack>
@@ -75,6 +88,7 @@ function Home() {
         onChange={setSelectedDay} 
         data={dataDays}
         placeholder="Choose one Care Recipient to follow" />
+        <TableScrollArea dayInfos={dayInfos} ></TableScrollArea>
     </Stack>
   )
 }

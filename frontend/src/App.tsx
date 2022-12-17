@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import Content from './components/Content';
 import { HeaderTabsColored } from './components/Header';
+import Home from './components/Home';
 
 function App() {
   const tabs =  [
@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="app">
       <HeaderTabsColored tabs={tabs}/>
-      <Content/>
+      <Home/>
     </div>
   );
 }

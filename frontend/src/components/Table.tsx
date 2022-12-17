@@ -25,6 +25,10 @@ const useStyles = createStyles((theme) => ({
   scrolled: {
     boxShadow: theme.shadows.sm,
   },
+  container : {
+    width: '90%',
+    height: '70%', 
+  }
 }));
 
 interface TableScrollAreaProps {
@@ -75,7 +79,9 @@ const filterPayload = (payload:any) => {
   ));
 
   return (
-    <ScrollArea sx={{ height: 300 }} onScrollPositionChange={({ y }) => setScrolled(y !== 0)}>
+    <ScrollArea
+    className={classes.container} 
+    onScrollPositionChange={({ y }) => setScrolled(y !== 0)}>
       <Table sx={{ minWidth: 700 }}>
         <thead className={cx(classes.header, { [classes.scrolled]: scrolled })}>
           <tr>

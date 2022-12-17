@@ -13,7 +13,7 @@ const useStyles = createStyles((theme) => ({
     borderBottom: `1px solid ${
       theme.fn.variant({ variant: 'filled', color: theme.primaryColor }).background
     }`,
-    marginBottom: 20,
+    marginBottom: 50,
   },
 
   mainSection: {
@@ -84,18 +84,6 @@ export function HeaderTabsColored({ tabs }: HeaderTabsProps) {
       />
         </div>
         </Group>
-      </Container>
-      <Container>
-        <Tabs
-          variant="outline"
-          classNames={{
-            root: classes.tabs,
-            tabsList: classes.tabsList,
-            tab: classes.tab,
-          }}
-        >
-          <Tabs.List>{items}</Tabs.List>
-        </Tabs>
       </Container>
     </div>
   );

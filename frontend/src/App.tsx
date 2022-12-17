@@ -1,12 +1,15 @@
 import React from 'react';
 import './App.css';
-//import Background from './components/Background';
 import Content from './components/Content';
+import { HeaderTabsColored } from './components/Header';
 
 function App() {
+  const tabs =  [
+    "Home",
+  ]
   return (
     <div className="app">
-      {/* <Background/> */}
+      <HeaderTabsColored tabs={tabs}/>
       <Content/>
     </div>
   );

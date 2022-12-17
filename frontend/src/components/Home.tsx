@@ -26,7 +26,6 @@ function Home() {
         try {
             const response = await api.get('/recipients');
             const responseData = await response.data;
-            console.log('response:', responseData);
             setRecipients(responseData)
             setGet(false)
           } catch (err) {

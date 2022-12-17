@@ -29,7 +29,6 @@ function Recipient({selectedRecipient}: RecipientProps) {
         try {
             const response = await api.get(`/recipients/days?care_recipient_id=${selectedRecipient}`);
             const responseData = await response.data;
-            console.log('response:', responseData);
             setDays(responseData)
           } catch (err) {
             console.log(err);
@@ -40,7 +39,6 @@ function Recipient({selectedRecipient}: RecipientProps) {
         try {
             const response = await api.get(`/recipients/dayinfos?care_recipient_id=${selectedRecipient}&day=${selectedDay}`);
             const responseData = await response.data;
-            console.log('response:', responseData);
             setDaysInfos(responseData)
           } catch (err) {
             console.log(err);
@@ -55,7 +53,6 @@ function Recipient({selectedRecipient}: RecipientProps) {
     }, [selectedRecipient])
 
     useEffect(()=> {
-        console.log(selectedDay)
         if (selectedDay !== null || selectedDay !== '') {
             getDayInfos();
         }

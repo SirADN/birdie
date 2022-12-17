@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import express = require("express");
 import cors = require("cors");
 //import path = require("path");
@@ -11,30 +12,29 @@ class Server {
     this.app = express();
     this.port = process.env.PORT; // Loaded from .env file
     this.paths = {
-      // auth: "/api/auth",
-      // homepage: "/api/homepage",
       ping: "/hello",
       testDB: "/testdb",
+      recipients: "/recipients",
     };
 
     this.middlewares();
     this.routes();
   }
 
-  middlewares() {
+  middlewares(): void {
     this.app.use(cors()); // Enable CORS
   }
 
   // Bind controllers to routes
-  routes() {
-    // this.app.use(this.paths.auth, require("../routes/auth"));
-    // this.app.use(this.paths.homepage, require("../routes/homepage"));
+  routes(): void {
     this.app.use(this.paths.ping, require("../routes/ping"));
     this.app.use(this.paths.testDB, require("../routes/testdb"));
+    this.app.use(this.paths.recipients, require("../routes/recipients"));
   }
 
-  listen() {
+  listen(): void {
     this.app.listen(this.port, () => {
+      // eslint-disable-next-line no-console
       console.log("Server running on port: ", this.port);
     });
   }

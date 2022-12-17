@@ -1,8 +1,7 @@
-import { createStyles, Select, Stack, Title } from '@mantine/core';
-import React, { useEffect, useMemo, useState } from 'react'
+import { createStyles, Stack, Title } from '@mantine/core';
+import React, { useEffect, useState } from 'react'
 import api from './utils/api';
-import { TableScrollArea } from './Table';
-import { Day, DayInfo, RecipientId } from './utils/types';
+import { RecipientId } from './utils/types';
 import ChooseRecipientBar from './Bar';
 import Recipient from './Recipient/Recipient';
 

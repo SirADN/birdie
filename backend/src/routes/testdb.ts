@@ -8,7 +8,7 @@ router.get("/", async (_, res, next): Promise<void> => {
     res.json(await testDB());
   } catch (err: any) {
     // eslint-disable-next-line no-console
-    console.error(`Error while getting programming languages `, err.message);
+    console.error(`Error while testing connection to DB `, err.message);
     next(err);
   }
 });

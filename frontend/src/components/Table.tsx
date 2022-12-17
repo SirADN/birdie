@@ -52,6 +52,7 @@ export function TableScrollArea({ dayInfos }: TableScrollAreaProps) {
 }
 
 const filterPayload = (payload:any) => {
+  if (payload) {
     const destringifyPayload = destringifyDayInfoPayload(payload)
     let filterpayload: any[] = []
     Object.keys(destringifyPayload).forEach(key => {
@@ -59,8 +60,9 @@ const filterPayload = (payload:any) => {
             filterpayload.push(`${key}: ${destringifyPayload[key].toString()} ; `)
         }
     })
-    console.log(filterpayload)
     return filterpayload
+  }
+  return '' 
 }
 
   useEffect(() => {

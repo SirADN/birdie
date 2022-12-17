@@ -15,6 +15,7 @@ class Server {
       // homepage: "/api/homepage",
       ping: "/hello",
       testDB: "/testdb",
+      recipients: "/recipients",
     };
 
     this.middlewares();
@@ -31,6 +32,7 @@ class Server {
     // this.app.use(this.paths.homepage, require("../routes/homepage"));
     this.app.use(this.paths.ping, require("../routes/ping"));
     this.app.use(this.paths.testDB, require("../routes/testdb"));
+    this.app.use(this.paths.recipients, require("../routes/recipients"));
   }
 
   listen() {

@@ -1,10 +1,11 @@
 # Birdie Developer Test - Adrien BOURGAIN
 
 ## Table of content
-* [Deliverables](#deliverables)
-* [Set up](#set-up)
-* [Usage](#usage)
-* [Links](#links)
+
+- [Deliverables](#deliverables)
+- [Set up](#set-up)
+- [Usage](#usage)
+- [Links](#links)
 
 ## Deliverables
 
@@ -14,7 +15,7 @@
 
 ## Set up
 
-* Put the .env file in the backend folder.
+- Put the .env file in the backend folder.
 
 ## Usage
 
@@ -32,9 +33,9 @@
    npm run dev
    ```
 
-2. Start the React app  (Run the following commands within the `front-end` folder)
+2. Start the React app (Run the following commands within the `front-end` folder)
 
-    a. Install the dependencies
+   a. Install the dependencies
 
    ```bash
    npm install
@@ -45,6 +46,8 @@
    ```bash
    npm start
    ```
+
 ## Links
 
-* [Commit convention (with emojis)](https://github.com/kazupon/git-commit-message-convention/blob/master/README.md)
+- [Commit convention (with emojis)](https://github.com/kazupon/git-commit-message-convention/blob/master/README.md)
+- [Mantine Components]()
